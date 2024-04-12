@@ -1,24 +1,12 @@
-# vue-admin-demo
+# 需要安装的第三方包
 
-## Project setup
 ```
-npm install
+npm i element-ui -S
+npm install  nprogress -S
+npm i axios -S
+npm i sass sass-loader -S
+npm i vuex@3 -S
+npm i vue-router@3 -S
+npm i js-cookie@2.2.0 -S
+npm i path-to-regexp@2.4.0 -S
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
