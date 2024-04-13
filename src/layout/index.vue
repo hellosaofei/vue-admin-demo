@@ -5,10 +5,10 @@
       class="drawer-bg"
       @click="handleClickOutside"
     />
-    <sidebar class="sidebar-container" />
+    <side-bar class="sidebar-container" />
     <div class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
-        <navbar />
+        <nav-bar />
       </div>
       <app-main />
     </div>
@@ -16,14 +16,16 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from "./components";
+import { NavBar, SideBar, AppMain } from "./components";
+import ResizeMixin from "./mixin/ResizeHander";
 export default {
   name: "Layout",
   components: {
-    Navbar,
-    Sidebar,
+    NavBar,
+    SideBar,
     AppMain,
   },
+  mixins: [ResizeMixin],
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar;
