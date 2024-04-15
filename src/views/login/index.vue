@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { validUsername } from "@/utils/validate";
 export default {
   name: "Login",
   data() {
@@ -110,6 +111,9 @@ export default {
       immediate: true,
     },
   },
+  mounted() {
+    console.log(this.$store);
+  },
   methods: {
     showPwd() {
       if (this.passwordType === "password") {
@@ -121,6 +125,7 @@ export default {
         this.$refs.password.focus();
       });
     },
+
     handleLogin() {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {

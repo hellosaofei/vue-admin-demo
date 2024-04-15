@@ -7,7 +7,7 @@
     />
     <side-bar class="sidebar-container" />
     <div class="main-container">
-      <div :class="{ 'fixed-header': fixedHeader }">
+      <div :class="{ 'fixed-header': isFixHeader }">
         <nav-bar />
       </div>
       <app-main />
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { NavBar, SideBar, AppMain } from "./components";
 import ResizeMixin from "./mixin/ResizeHander";
 export default {
@@ -27,15 +28,7 @@ export default {
   },
   mixins: [ResizeMixin],
   computed: {
-    sidebar() {
-      return this.$store.state.app.sidebar;
-    },
-    device() {
-      return this.$store.state.app.device;
-    },
-    fixedHeader() {
-      return this.$store.state.settings.fixedHeader;
-    },
+    ...mapGetters(["sidebar", "device", "isFixHeader"]),
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,

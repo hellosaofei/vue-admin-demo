@@ -1,24 +1,25 @@
 <template>
   <div :class="{ 'has-logo': isShowLogo }">
     <logo v-if="isShowLogo" :collapse="isCollapse" />
-
-    <el-menu
-      :default-active="activeMenu"
-      :collapse="isCollapse"
-      background-color="#304156"
-      :text-color="variables.menuText"
-      :unique-opened="false"
-      :active-text-color="variables.menuActiveText"
-      :collapse-transition="false"
-      mode="vertical"
-    >
-      <sidebar-item
-        v-for="route in routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />
-    </el-menu>
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu
+        :default-active="activeMenu"
+        :collapse="isCollapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuText"
+        :unique-opened="false"
+        :active-text-color="variables.menuActiveText"
+        :collapse-transition="false"
+        mode="vertical"
+      >
+        <sidebar-item
+          v-for="route in routes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -35,6 +36,7 @@ export default {
     routes() {
       return this.$router.options.routes;
     },
+
     activeMenu() {
       const { meta, path } = this.$route;
       // if set path, the sidebar will highlight the path you set
@@ -46,10 +48,12 @@ export default {
     variables() {
       return variables;
     },
-    //是否折叠
     isCollapse() {
       return !this.sidebar.opened;
     },
+  },
+  beforeCreate() {
+    console.log(this.$route);
   },
 };
 </script>

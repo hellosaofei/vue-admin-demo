@@ -1,11 +1,11 @@
 // import defaultSettings from '@/settings'
 
 // const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
-import { project_title, fixedHeader, sidebarLogo } from "@/settings";
+import { project_title, isFixHeader, isShowSidebarLogo } from "@/settings";
 const state = {
   showSettings: true,
-  fixedHeader: fixedHeader,
-  sidebarLogo: sidebarLogo,
+  isFixHeader: isFixHeader,
+  isShowSidebarLogo: isShowSidebarLogo,
 };
 
 const mutations = {

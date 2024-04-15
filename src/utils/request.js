@@ -1,8 +1,9 @@
 import axios from "axios";
-import { Message, MessageBox } from "element-ui";
-
+import { MessageBox, Message } from "element-ui";
+import store from "@/store";
+import { getToken } from "@/utils/auth";
 const service = axios.create({
-  baseURL: "",
+  baseURL: "http://localhost:3001",
 });
 
 // 请求拦截器
