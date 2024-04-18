@@ -1,14 +1,3 @@
-<!-- <template>
-  <div>
-    <i
-      v-if="icon && icon.includes('el-icon')"
-      :class="[icon, 'sub-el-icon']"
-    ></i>
-    <svg-icon v-else-if="icon" :icon-class="icon"></svg-icon>
-    <span v-if="title" slot="title">{{ title }}</span>
-  </div>
-</template> -->
-
 <script>
 export default {
   name: "MenuItem",
@@ -23,6 +12,8 @@ export default {
       default: "",
     },
   },
+  // 如果直接写template，控制台会报错  _self  ...
+  // 可能是因为组件递归调用自身存在一定的问题，还没明白
   render(h, context) {
     const { icon, title } = context.props;
     const vnodes = [];
