@@ -1,3 +1,6 @@
 <template>
-  <div style="padding: 30px">table页面</div>
+  <div class="app-container">table页面</div>
 </template>
+<script></script>
+
+<style></style>

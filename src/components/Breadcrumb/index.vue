@@ -5,7 +5,7 @@
         v-for="(item, index) in levelList"
         :key="item.path + '-' + index"
       >
-        {{ item.meta.title }}
+        <a @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
