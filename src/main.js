@@ -11,6 +11,10 @@ import store from "./store";
 import router from "./route";
 import "@/icons";
 import "@/permission";
+
+import VueLuckyCanvas from "@lucky-canvas/vue";
+Vue.use(VueLuckyCanvas);
+
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);

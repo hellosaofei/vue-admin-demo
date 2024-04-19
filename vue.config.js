@@ -1,5 +1,7 @@
 const path = require("path");
 // const defaultSettings = require("./src/settings.js");
+// const BundleAnalyzerPlugin =
+//   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -11,6 +13,15 @@ module.exports = defineConfig({
   lintOnSave: false,
   devServer: {
     port: 9528,
+  },
+  configureWebpack: {
+    // plugins: [new BundleAnalyzerPlugin()],
+    externals: {
+      Vue: "vue",
+      "vue-router": "VueRouter",
+      "video.js": "videojs", //这里的'videojs'是全局变量名，确保它在你的HTML文件中可用
+      // "element-ui": "element",
+    },
   },
   chainWebpack(config) {
     // 当有很多页面时，这可能会导致很多无意义的请求
