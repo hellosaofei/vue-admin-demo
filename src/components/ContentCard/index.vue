@@ -25,6 +25,7 @@ export default {
 <style>
 .box-card {
   width: 480px;
+  /* height: 350px; */
   padding-bottom: 18px;
 }
 </style>

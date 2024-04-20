@@ -1,10 +1,16 @@
 <template>
-  <div>js实现画板</div>
+  <div class="app-container">
+    <DrawBoard />
+  </div>
 </template>
 
 <script>
+import DrawBoard from "./components/DrawBoard.vue";
 export default {
   name: "Canvas",
+  components: {
+    DrawBoard,
+  },
 };
 </script>
 

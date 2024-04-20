@@ -25,9 +25,11 @@ export default {
   },
   computed: {
     imageList() {
-      let array = [];
+      const array = [];
       for (let i = 0; i < 20; i++) {
-        array.push("https://dummyimage.com/300x600/000/fff");
+        const randomHeight = Math.round(Math.random() * 500) + 300;
+        const src = `http://source.unsplash.com/random/400x${randomHeight}`;
+        array.push(src);
       }
       return array;
     },
@@ -59,7 +61,7 @@ export default {
         const minIndex = heightArr.indexOf(minHeight);
         item.style.top = minHeight + "px";
         item.style.left = minIndex * imgWidth + "px";
-        heightArr[minIndex] += itemHeight;
+        heightArr[minIndex] += itemHeight + 6;
       }
     },
   },
@@ -72,7 +74,7 @@ export default {
   width: 320px;
   position: relative;
   .img {
-    // position: absolute;
+    position: absolute;
     vertical-align: top;
     margin: 3px;
   }

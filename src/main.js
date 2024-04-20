@@ -14,9 +14,9 @@ import "@/permission";
 
 import VueLuckyCanvas from "@lucky-canvas/vue";
 Vue.use(VueLuckyCanvas);
-
-Vue.config.productionTip = false;
-
+Vue.prototype.$echarts = window.echarts;
+// Vue.config.productionTip = false;
+Vue.config.devtools = true;
 Vue.use(ElementUI);
 
 new Vue({
