@@ -1,5 +1,5 @@
 <template>
-  <el-card class="box-card">
+  <el-card class="box-card" :style="{ width: cardWidth }">
     <div slot="header" class="clearfix">
       <span>{{ cardName }}</span>
     </div>
@@ -18,13 +18,17 @@ export default {
       type: String,
       default: "内容卡片",
     },
+    cardWidth: {
+      type: String,
+      default: "480px",
+    },
   },
 };
 </script>
 
 <style>
 .box-card {
-  width: 480px;
+  /* width: 480px; */
   /* height: 350px; */
   padding-bottom: 18px;
 }

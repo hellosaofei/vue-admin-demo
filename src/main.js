@@ -13,7 +13,10 @@ import "@/icons";
 import "@/permission";
 
 import VueLuckyCanvas from "@lucky-canvas/vue";
+
+import SlideVerify from "vue-monoplasty-slide-verify";
 Vue.use(VueLuckyCanvas);
+Vue.use(SlideVerify);
 Vue.prototype.$echarts = window.echarts;
 // Vue.config.productionTip = false;
 Vue.config.devtools = true;

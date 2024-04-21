@@ -7,11 +7,13 @@
 <script>
 import ContentCard from "@/components/ContentCard/index.vue";
 import { scatterOption, barOption } from "./config.js";
+import updateMixin from "../../mixins/update";
 export default {
   name: "ScatterChart",
   components: {
     ContentCard,
   },
+  mixins: [updateMixin],
   data() {
     return {
       chartInstance: null,
@@ -48,14 +50,6 @@ export default {
           ? this.barOption
           : this.scatterOption;
       this.chartInstance.setOption(this.currentOption, true);
-    },
-    startInterval() {
-      if (this.timer) {
-        clearInterval(this.timer);
-      }
-      this.timer = setInterval(() => {
-        this.updateChart();
-      }, 3000);
     },
   },
 };

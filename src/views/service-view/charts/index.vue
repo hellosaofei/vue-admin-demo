@@ -1,20 +1,39 @@
 <template>
-  <div class="app-container">
+  <div class="app-container chart-container">
     <BarChart />
     <ScatterChart />
+    <ScoreRing />
+    <RadarChart />
+    <SunriseChart />
   </div>
 </template>
 
 <script>
-import BarChart from "./components/BarChart/index.vue";
-import ScatterChart from "./components/ScatterChart/index.vue";
+import {
+  BarChart,
+  ScatterChart,
+  ScoreRing,
+  RadarChart,
+  SunriseChart,
+} from "./components/index.js";
 export default {
   name: "MyChart",
   components: {
     BarChart,
     ScatterChart,
+    ScoreRing,
+    RadarChart,
+    SunriseChart,
   },
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    margin: 10px;
+  }
+}
+</style>

@@ -1,14 +1,15 @@
 <template>
-  <content-card cardName="柱状图">
-    <div id="chartArea" style="width: 100%; height: 300px"></div>
+  <content-card cardName="旭日图">
+    <div ref="sunriseArea" style="width: 100%; height: 300px"></div>
   </content-card>
 </template>
 
 <script>
 import ContentCard from "@/components/ContentCard/index.vue";
+import { data1, data2, initOption } from "./config.js";
 import updateMixin from "../../mixins/update";
 export default {
-  name: "BarChart",
+  name: "ScoreRing",
   components: {
     ContentCard,
   },
@@ -16,8 +17,8 @@ export default {
   data() {
     return {
       chartInstance: null,
-      data: [57, 20, 30, 70],
       timer: null,
+      currentData: null,
     };
   },
   mounted() {
@@ -27,38 +28,21 @@ export default {
   destroyed() {
     clearInterval(this.timer);
   },
+
   methods: {
     initChart() {
-      this.chartInstance = this.$echarts.init(
-        document.getElementById("chartArea")
-      );
-
-      const initOption = {
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "高跟鞋", "袜子"],
-        },
-        yAxis: {},
-        series: [
-          {
-            name: "销量",
-            type: "bar",
-            data: this.data,
-          },
-        ],
-      };
+      this.chartInstance = this.$echarts.init(this.$refs.sunriseArea);
 
       this.chartInstance.setOption(initOption);
+      this.currentData = data1;
     },
 
     updateChart() {
-      const newData = this.data.map((item) => {
-        return (Math.random() * 100).toFixed(2);
-      });
-
+      this.currentData = this.currentData === data1 ? data2 : data1;
       this.chartInstance.setOption({
         series: [
           {
-            data: newData,
+            data: this.currentData,
           },
         ],
       });

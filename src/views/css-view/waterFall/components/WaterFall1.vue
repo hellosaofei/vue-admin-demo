@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "JWaterfall",
+  name: "Waterfall",
   props: {
     imgWidth: {
       type: Number,
@@ -27,9 +27,7 @@ export default {
     imageList() {
       const array = [];
       for (let i = 0; i < 20; i++) {
-        const randomHeight = Math.round(Math.random() * 500) + 300;
-        const src = `http://source.unsplash.com/random/400x${randomHeight}`;
-        array.push(src);
+        array.push("https://imgapi.cn/api.php?fl=dongman&gs=images");
       }
       return array;
     },

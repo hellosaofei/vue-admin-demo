@@ -29,10 +29,10 @@ export default {
       meta: { title: "pdf", noCache: true },
     },
     {
-      path: "sliderVerify",
-      component: () => import("@/views/service-view/sliderVerify"),
-      name: "sliderVerify",
-      meta: { title: "sliderVerify", noCache: true },
+      path: "sliderVerify1",
+      component: () => import("@/views/service-view/sliderVerify1"),
+      name: "sliderVerify1",
+      meta: { title: "sliderVerify1", noCache: true },
     },
     {
       path: "videoPlayer",
