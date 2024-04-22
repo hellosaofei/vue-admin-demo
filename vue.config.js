@@ -13,6 +13,10 @@ module.exports = defineConfig({
   lintOnSave: false,
   devServer: {
     port: 9528,
+    onBeforeSetupMiddleware: function (devServer) {
+      const service = require("./mock/mock-server.js");
+      service(devServer.app);
+    },
   },
   configureWebpack: {
     // plugins: [new BundleAnalyzerPlugin()],
