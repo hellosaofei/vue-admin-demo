@@ -1,3 +1,5 @@
+const { Random } = require("mockjs");
+
 function param2Obj(url) {
   const search = decodeURIComponent(url.split("?")[1]).replace(/\+/g, " ");
   if (!search) {
@@ -15,7 +17,10 @@ function param2Obj(url) {
   });
   return obj;
 }
-
+function handleRandomImage(width = 50, height = 50) {
+  return `https://picsum.photos/${width}/${height}?random=${Random.guid()}`;
+}
 module.exports = {
   param2Obj,
+  handleRandomImage,
 };

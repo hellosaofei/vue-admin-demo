@@ -1,30 +1,87 @@
-const Mock = require("mockjs");
+const { mock } = require("mockjs");
+const { handleRandomImage } = require("../utils");
 
-const data = Mock.mock({
-  "items|30": [
-    {
+const List = [];
+const count = 120;
+for (let i = 0; i < count; i++) {
+  List.push(
+    mock({
+      uuid: "@uuid",
       id: "@id",
-      title: "@sentence(10, 20)",
+      title: "@csentence(1, 2)",
       "status|1": ["published", "draft", "deleted"],
-      author: "name",
-      display_time: "@datetime",
-      pageviews: "@integer(300, 5000)",
-    },
-  ],
-});
+      author: "@cname",
+      datetime: "@datetime",
+      pageViews: "@integer(300, 5000)",
+      img: handleRandomImage(200, 200),
+      smallImg: handleRandomImage(40, 40),
+      switch: "@boolean",
+      percent: "@integer(80,99)",
+    })
+  );
+}
 
 module.exports = [
   {
-    url: "/vue-admin-template/table/list",
-    type: "get",
-    response: (config) => {
-      const items = data.items;
+    url: "/table/getList",
+    type: "post",
+    response(config) {
+      if (!config.body) {
+        return {
+          code: 200,
+          msg: "success",
+          totalCount: count,
+          data: mock({
+            "data|50": [
+              {
+                id: "@id",
+                title: "@csentence(1, 2)",
+                "status|1": ["published", "draft", "deleted"],
+                author: "@cname",
+                datetime: "@datetime",
+                pageViews: "@integer(300, 5000)",
+                img: handleRandomImage(200, 200),
+                smallImg: handleRandomImage(40, 40),
+                switch: "@boolean",
+                percent: "@integer(80,99)",
+              },
+            ],
+          }).data,
+        };
+      }
+      const { title = "", pageNo = 1, pageSize = 20 } = config.body;
+      let mockList = List.filter((item) => {
+        return !(title && item.title.indexOf(title) < 0);
+      });
+      const pageList = mockList.filter(
+        (item, index) =>
+          index < pageSize * pageNo && index >= pageSize * (pageNo - 1)
+      );
       return {
-        code: 20000,
-        data: {
-          total: items.length,
-          items: items,
-        },
+        code: 200,
+        msg: "success",
+        totalCount: count,
+        data: pageList,
+      };
+    },
+  },
+  {
+    url: "/table/doEdit",
+    type: "post",
+    response() {
+      return {
+        code: 200,
+        msg: "模拟保存成功",
+      };
+    },
+  },
+  {
+    url: "/table/doDelete",
+    type: "post",
+    response() {
+      return {
+        code: 200,
+        msg: "模拟删除成功",
       };
     },
   },
