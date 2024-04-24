@@ -53,6 +53,14 @@ export default {
       component: () => import("@/views/backstage/service"),
       name: "service",
       meta: { title: "业务", noCache: true },
+      children: [
+        {
+          path: "icons",
+          component: () => import("@/views/backstage/service/icons"),
+          name: "icons",
+          meta: { title: "图标" },
+        },
+      ],
     },
     {
       path: "setting",

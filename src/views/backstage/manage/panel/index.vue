@@ -1,5 +1,5 @@
 <template>
-  <div>面板</div>
+  <div class="app-container"></div>
 </template>
 
 <script>

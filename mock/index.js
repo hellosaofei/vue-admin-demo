@@ -4,11 +4,11 @@
 // Mock.mock("/user/userinfo", "get", data);
 const Mock = require("mockjs");
 const { param2Obj } = require("./utils");
-
+const icon = require("./config/icon");
 const user = require("./config/user");
 const table = require("./config/table");
-
-const mocks = [...user, ...table];
+const comment = require("./config/comment");
+const mocks = [...user, ...table, ...icon, ...comment];
 
 function mockXHR() {
   Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send;

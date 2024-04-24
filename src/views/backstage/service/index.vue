@@ -1,9 +1,5 @@
 <template>
-  <div>业务相关</div>
+  <div style="padding: 30px">
+    <router-view />
+  </div>
 </template>
-
-<script>
-export default {};
-</script>
-
-<style></style>

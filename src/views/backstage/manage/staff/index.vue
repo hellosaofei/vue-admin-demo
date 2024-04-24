@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="app-container">
     <el-table
+      :border="true"
       ref="tableSort"
       :data="tableItemList"
       :height="height"
@@ -17,13 +18,17 @@
       <el-table-column label="作者" prop="author" show-overflow-tooltip />
       <el-table-column label="头像" show-overflow-tooltip>
         <template #default="{ row }">
-          <el-image
-            v-if="imgShow"
-            style="width: 50px"
-            :preview-src-list="imageList"
-            :src="row.img"
-            lazy
-          />
+          <el-popover placement="top" width="200" trigger="hover">
+            <el-image :src="row.img" style="width: 78px; height: 50px" />
+
+            <el-image
+              v-if="imgShow"
+              style="width: 50px"
+              :preview-src-list="imageList"
+              :src="row.img"
+              slot="reference"
+            />
+          </el-popover>
         </template>
       </el-table-column>
       <el-table-column
@@ -52,7 +57,12 @@
         show-overflow-tooltip
         width="200"
       />
-      <!--占位，编辑-->
+      <el-table-column label="操作" show-overflow-tooltip width="180px">
+        <template #default="{ row }">
+          <el-button type="text" @click="handleEdit(row)">编辑</el-button>
+          <el-button type="text" @click="handleDelete(row)">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <el-pagination
       :current-page="queryForm.pageNo"
@@ -120,6 +130,12 @@ export default {
     handleSizeChange(val) {
       this.queryForm.pageSize = val;
       this.fetchData();
+    },
+    handleEdit(row) {
+      console.log(row);
+    },
+    handleDelete(row) {
+      console.log("删除" + row);
     },
     async fetchData() {
       const { data, totalCount } = await getList(this.queryForm);
