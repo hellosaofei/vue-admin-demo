@@ -1,5 +1,7 @@
 <template>
-  <div>js实现拖拽</div>
+  <div class="app-container">
+    <el-empty description="暂时没有内容"></el-empty>
+  </div>
 </template>
 
 <script>

@@ -5,7 +5,7 @@ export default {
   component: Layout,
   name: "css-view",
   meta: {
-    title: "cssView",
+    title: "Css相关",
     icon: "eye",
   },
   redirect: "/css-view/carousel",
@@ -14,13 +14,13 @@ export default {
       path: "carousel",
       component: () => import("@/views/css-view/carousel"),
       name: "carousel",
-      meta: { title: "carousel", noCache: true },
+      meta: { title: "轮播图", noCache: true },
     },
     {
       path: "waterfall",
       component: () => import("@/views/css-view/waterFall"),
       name: "waterfall",
-      meta: { title: "waterfall", noCache: true },
+      meta: { title: "瀑布流图片", noCache: true },
     },
   ],
 };

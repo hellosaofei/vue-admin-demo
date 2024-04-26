@@ -41,19 +41,7 @@ export const constantRoutes = [
       },
     ],
   },
-  {
-    path: "/form",
-    component: Layout,
-    meta: { title: "Form", icon: "form" },
-    children: [
-      {
-        path: "index",
-        name: "Form",
-        component: () => import("@/views/form/index"),
-        meta: { title: "Form", icon: "form" },
-      },
-    ],
-  },
+
   jsViewRouter,
   cssViewRouter,
   serviceViewRouter,

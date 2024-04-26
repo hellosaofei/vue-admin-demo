@@ -5,8 +5,8 @@ export default {
   component: Layout,
   name: "jsView",
   meta: {
-    title: "jsView",
-    icon: "chart",
+    title: "Js相关",
+    icon: "example",
   },
   redirect: "/js-view/canvas",
   children: [
@@ -14,13 +14,13 @@ export default {
       path: "canvas",
       component: () => import("@/views/js-view/canvas"),
       name: "canvas",
-      meta: { title: "canvas", noCache: true },
+      meta: { title: "canvas画板", noCache: true },
     },
     {
       path: "countTo",
       component: () => import("@/views/js-view/countTo"),
       name: "countTo",
-      meta: { title: "countTo", noCache: true },
+      meta: { title: "数字自增长", noCache: true },
     },
     {
       path: "socket",
@@ -32,13 +32,13 @@ export default {
       path: "upload",
       component: () => import("@/views/js-view/upload"),
       name: "Upload",
-      meta: { title: "upload", noCache: true },
+      meta: { title: "文件上传", noCache: true },
     },
     {
       path: "drag",
       component: () => import("@/views/js-view/drag"),
       name: "drag",
-      meta: { title: "drag", noCache: true },
+      meta: { title: "元素拖拽", noCache: true },
     },
   ],
 };

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 // const defaultSettings = require("./src/settings.js");
 // const BundleAnalyzerPlugin =
 //   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -18,6 +19,14 @@ module.exports = defineConfig({
       service(devServer.app);
     },
   },
+  // plugins: [
+  //   new webpack.DefinePlugin({
+  //     // webpack自带该插件，无需单独安装
+  //     "process.env": {
+  //       NODE_ENV: process.env.NODE_ENV, // 将属性转化为全局变量，让代码中可以正常访问
+  //     },
+  //   }),
+  // ],
   configureWebpack: {
     // plugins: [new BundleAnalyzerPlugin()],
     externals: {

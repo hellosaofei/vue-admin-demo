@@ -41,6 +41,18 @@ export default {
     this.waterfallHandler();
   },
   methods: {
+    handleRandomImage(width = 400) {
+      let heightArr = [100, 200, 300, 400, 500, 600];
+      let random_height = this.getRandomElement(heightArr);
+      return `https://picsum.photos/${width}/${random_height}`;
+    },
+    getRandomElement(array) {
+      if (array.length === 0) {
+        return null; // 或者抛出错误，如果数组为空
+      }
+      var randomIndex = Math.floor(Math.random() * array.length);
+      return array[randomIndex];
+    },
     waterfallHandler() {
       const imgWidth = this.imgWidth + this.imgMargin * 2;
       const contentW = document.getElementById("img-content").offsetWidth;

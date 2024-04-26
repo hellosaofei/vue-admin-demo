@@ -1,5 +1,7 @@
 <template>
-  <div>pdf 预览 效果</div>
+  <div class="app-container">
+    <el-empty description="暂时没有内容"></el-empty>
+  </div>
 </template>
 
 <script>

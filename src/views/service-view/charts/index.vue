@@ -30,10 +30,8 @@ export default {
 
 <style scoped lang="scss">
 .chart-container {
-  display: flex;
-  flex-wrap: wrap;
-  div {
-    margin: 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
 }
 </style>

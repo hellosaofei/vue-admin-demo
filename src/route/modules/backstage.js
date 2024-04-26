@@ -15,6 +15,7 @@ export default {
       component: () => import("@/views/backstage/manage"),
       name: "manage",
       meta: { title: "管理", noCache: true },
+      redirect: "/backstage/manage/comment",
       children: [
         {
           path: "comment",
@@ -72,7 +73,7 @@ export default {
           path: "log",
           component: () => import("@/views/backstage/SystemSetting/log"),
           name: "Comment",
-          meta: { title: "评论管理" },
+          meta: { title: "系统日志" },
         },
       ],
     },

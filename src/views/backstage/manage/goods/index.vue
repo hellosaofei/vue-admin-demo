@@ -1,5 +1,7 @@
 <template>
-  <div>商品管理</div>
+  <div class="app-container">
+    <el-empty description="暂时没有内容"></el-empty>
+  </div>
 </template>
 
 <script>

@@ -33,7 +33,7 @@
 
             <el-image
               v-if="imgShow"
-              style="width: 50px"
+              style="width: 50px; border-radius: 8%"
               :preview-src-list="imageList"
               :src="row.good_image"
               slot="reference"
