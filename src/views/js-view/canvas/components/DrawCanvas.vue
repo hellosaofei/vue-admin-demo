@@ -2,7 +2,7 @@
   <canvas
     ref="canvas"
     width="800"
-    height="700"
+    height="600"
     @mousedown="handleDown($event)"
     @mouseup="handleUp()"
     @mousemove="handleMove($event)"

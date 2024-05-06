@@ -1,8 +1,8 @@
 import request from "@/utils/request";
 
-export function getIconList(data) {
+export function getList(data) {
   return request({
-    url: "/icon/getList",
+    url: "/stastic/getList",
     method: "get",
     data,
   });

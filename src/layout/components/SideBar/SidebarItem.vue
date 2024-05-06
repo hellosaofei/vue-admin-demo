@@ -45,7 +45,7 @@
 <script>
 import Item from "./Item";
 import AppLink from "@/components/AppLink";
-
+// import path from "path";
 export default {
   name: "SidebarItem",
   components: { AppLink, Item },
@@ -96,7 +96,16 @@ export default {
       return false;
     },
     resolvePath(routePath) {
+      if (routePath == "dashboard") {
+        return this.basePath;
+      }
+      // if(this.basePath=='/'){
+      //   console.log(this.basePath)
+      // }
+
       return this.basePath + "/" + routePath;
+      // path.resolve(this.basePath, routePath)
+      // return path.resolve(this.basePath, routePath);
     },
   },
 };

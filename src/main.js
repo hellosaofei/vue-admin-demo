@@ -22,6 +22,11 @@ Vue.prototype.$echarts = window.echarts;
 Vue.config.devtools = true;
 Vue.use(ElementUI);
 
+if (process.env.NODE_ENV === "production") {
+  const { mockXHR } = require("../mock");
+  mockXHR();
+}
+
 new Vue({
   render: (h) => h(App),
   router,

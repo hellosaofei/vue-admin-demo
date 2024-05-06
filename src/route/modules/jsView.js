@@ -6,7 +6,7 @@ export default {
   name: "jsView",
   meta: {
     title: "Js相关",
-    icon: "example",
+    icon: "el-icon-location",
   },
   redirect: "/js-view/canvas",
   children: [

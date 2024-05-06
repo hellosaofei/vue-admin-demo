@@ -87,15 +87,17 @@
       />
       <!-- 占位，操作 -->
     </el-table>
-    <el-pagination
-      :current-page="queryForm.pageNo"
-      :page-size="queryForm.pageSize"
-      :layout="paginationSetting.layout"
-      :background="paginationSetting.background"
-      :total="paginationSetting.total"
-      @current-change="handleCurrentChange"
-      @size-change="handleSizeChange"
-    />
+    <div class="pagination-area">
+      <el-pagination
+        :current-page="queryForm.pageNo"
+        :page-size="queryForm.pageSize"
+        :layout="paginationSetting.layout"
+        :background="paginationSetting.background"
+        :total="paginationSetting.total"
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -163,11 +165,9 @@ export default {
     async fetchData() {
       const { data, totalCount } = await getList(this.queryForm);
       this.tableItemList = data;
-      const imageList = [];
       data.forEach((item) => {
-        imageList.push(item.img);
+        this.imageList.push(item.img);
       });
-      this.imageList = imageList;
       this.paginationSetting.total = totalCount;
     },
   },

@@ -22,8 +22,10 @@ export default {
     };
   },
   mounted() {
-    this.initChart();
-    this.startInterval();
+    this.$nextTick(() => {
+      this.initChart();
+      this.startInterval();
+    });
   },
   destroyed() {
     clearInterval(this.timer);

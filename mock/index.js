@@ -8,7 +8,22 @@ const icon = require("./config/icon");
 const user = require("./config/user");
 const table = require("./config/table");
 const comment = require("./config/comment");
-const mocks = [...user, ...table, ...icon, ...comment];
+const systemLog = require("./config/systemLog");
+const timeline = require("./config/timeline");
+const mocks = [
+  ...user,
+  ...table,
+  ...icon,
+  ...comment,
+  ...systemLog,
+  ...timeline,
+];
+
+// const files = require.context('../../mock/controller', false, /\.js$/)
+
+// files.keys().forEach((key) => {
+//   mocks.push(...files(key))
+// })
 
 function mockXHR() {
   Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send;

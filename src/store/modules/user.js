@@ -1,4 +1,4 @@
-import { login, logout, getInfo } from "@/api/user";
+import { userLogin, userLogout, getUserInfo } from "@/api/user";
 import { getToken, setToken, removeToken } from "@/utils/auth";
 import { resetRouter } from "@/route";
 
@@ -15,7 +15,7 @@ const state = getDefaultState();
 
 const mutations = {
   RESET_STATE: (state) => {
-    Object.assign(state, getDefaultState());
+    Object.assign(state, getDefaultState()); //使用原始空的state信息覆盖当前用户的state
   },
   SET_TOKEN: (state, token) => {
     state.token = token;
@@ -29,15 +29,15 @@ const mutations = {
 };
 
 const actions = {
-  // user login
+  // 用户登录
   login({ commit }, userInfo) {
     const { username, password } = userInfo;
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password })
+      userLogin({ username: username.trim(), password: password })
         .then((response) => {
           const { data } = response;
-          commit("SET_TOKEN", data.token);
-          setToken(data.token);
+          commit("SET_TOKEN", data.token); // 存储在state中
+          setToken(data.token); //存储在cookie中
           resolve();
         })
         .catch((error) => {
@@ -46,37 +46,40 @@ const actions = {
     });
   },
 
-  // get user info
+  // 获取用户信息
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token)
+      //获取用户信息时，是拿state中存储的token作为默认参数去向后端请求的
+      getUserInfo(state.token)
         .then((response) => {
-          const { data } = response;
-
+          const { code, data } = response; // 捕获后端返回的信息
+          if (code !== 20000) {
+            return reject("后端未返回正确数据");
+          }
           if (!data) {
-            return reject("Verification failed, please Login again.");
+            return reject("验证失败请重新登陆");
           }
 
           const { name, avatar } = data;
 
-          commit("SET_NAME", name);
+          commit("SET_NAME", name); //存储用户信息
           commit("SET_AVATAR", avatar);
-          resolve(data);
+          resolve(data); //将用户信息交出去
         })
         .catch((error) => {
-          reject(error);
+          reject(error); //抛出错误信息
         });
     });
   },
 
-  // user logout
+  // 退出登录
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {
-      logout(state.token)
+      userLogout(state.token)
         .then(() => {
-          removeToken(); // must remove  token  first
+          removeToken(); // 移除cookie中存储的token
           resetRouter();
-          commit("RESET_STATE");
+          commit("RESET_STATE"); // 重置当前用户的state为空
           resolve();
         })
         .catch((error) => {
@@ -88,8 +91,8 @@ const actions = {
   // remove token
   resetToken({ commit }) {
     return new Promise((resolve) => {
-      removeToken(); // must remove  token  first
-      commit("RESET_STATE");
+      removeToken(); // 移除cookie中存储的token
+      commit("RESET_STATE"); // 重置当前用户的state为空
       resolve();
     });
   },

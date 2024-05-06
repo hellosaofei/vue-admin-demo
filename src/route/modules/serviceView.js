@@ -6,7 +6,7 @@ export default {
   name: "service-view",
   meta: {
     title: "业务相关",
-    icon: "example",
+    icon: "el-icon-set-up",
   },
   redirect: "/service-view/award",
   children: [
@@ -51,6 +51,12 @@ export default {
       component: () => import("@/views/service-view/numIncrease"),
       name: "num-increase",
       meta: { title: "数字自增长", noCache: true },
+    },
+    {
+      path: "share",
+      component: () => import("@/views/service-view/share"),
+      name: "share",
+      meta: { title: "分享", noCache: true },
     },
   ],
 };

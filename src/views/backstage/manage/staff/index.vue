@@ -39,16 +39,9 @@
       />
       <el-table-column label="状态" show-overflow-tooltip>
         <template #default="{ row }">
-          <el-tooltip
-            class="item"
-            :content="row.status"
-            effect="dark"
-            placement="top-start"
-          >
-            <el-tag :type="row.status | statusFilter">
-              {{ row.status }}
-            </el-tag>
-          </el-tooltip>
+          <el-tag :type="row.status | statusFilter">
+            {{ row.status }}
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column
@@ -64,15 +57,17 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      :current-page="queryForm.pageNo"
-      :page-size="queryForm.pageSize"
-      :layout="paginationSetting.layout"
-      :background="paginationSetting.background"
-      :total="paginationSetting.total"
-      @current-change="handleCurrentChange"
-      @size-change="handleSizeChange"
-    />
+    <div class="pagination-area">
+      <el-pagination
+        :current-page="queryForm.pageNo"
+        :page-size="queryForm.pageSize"
+        :layout="paginationSetting.layout"
+        :background="paginationSetting.background"
+        :total="paginationSetting.total"
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -133,9 +128,6 @@ export default {
     },
     handleEdit(row) {
       console.log(row);
-    },
-    handleDelete(row) {
-      console.log("删除" + row);
     },
     async fetchData() {
       const { data, totalCount } = await getList(this.queryForm);

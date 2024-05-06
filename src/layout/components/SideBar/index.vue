@@ -5,10 +5,10 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        background-color="#304156"
-        :text-color="variables.menuText"
+        :background-color="menuBgColor"
+        :text-color="menuTextColor"
         :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
+        :active-text-color="menuActiveTextColor"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -27,9 +27,15 @@
 import { mapGetters } from "vuex";
 import Logo from "./Logo";
 import SidebarItem from "./SidebarItem";
-import variables from "@/styles/variables.scss";
 
 export default {
+  data() {
+    return {
+      menuTextColor: "#bfcbd9",
+      menuActiveTextColor: "#409EFF",
+      menuBgColor: "#304156",
+    };
+  },
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters(["sidebar", "isShowLogo"]),
@@ -39,9 +45,6 @@ export default {
     activeMenu() {
       const { path } = this.$route;
       return path;
-    },
-    variables() {
-      return variables;
     },
     //是否折叠
     isCollapse() {

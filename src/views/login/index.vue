@@ -9,12 +9,13 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">登录</h3>
       </div>
 
       <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
+        <span class="icon-container">
+          <!-- <svg-icon icon-class="user" /> -->
+          <i class="el-icon-user"></i>
         </span>
         <el-input
           ref="username"
@@ -28,8 +29,9 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password" />
+        <span class="icon-container">
+          <!-- <svg-icon icon-class="password" /> -->
+          <i class="el-icon-user"></i>
         </span>
         <el-input
           :key="passwordType"
@@ -43,9 +45,10 @@
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon
+          <!-- <svg-icon
             :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          />
+          /> -->
+          <i class="el-icon-user"></i>
         </span>
       </el-form-item>
 
@@ -55,12 +58,12 @@
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
       >
-        Login
+        登录
       </el-button>
 
       <div class="tips">
         <span style="margin-right: 20px">username: admin</span>
-        <span>password: any</span>
+        <span>请任意填写密码</span>
       </div>
     </el-form>
   </div>
@@ -73,14 +76,14 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
-        callback(new Error("Please enter the correct user name"));
+        callback(new Error("请输入正确的用户名"));
       } else {
         callback();
       }
     };
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error("The password can not be less than 6 digits"));
+        callback(new Error("密码不小于6位"));
       } else {
         callback();
       }
@@ -107,14 +110,13 @@ export default {
     $route: {
       handler: (route) => {
         this.redirect = route.query && route.query.redirect;
+        // const redirect = route.query && route.query.redirect;
+        // this.redirect=redirect || '';
       },
-      immediate: true,
     },
   },
-  mounted() {
-    console.log(this.$store);
-  },
   methods: {
+    // 显示隐藏密码
     showPwd() {
       if (this.passwordType === "password") {
         this.passwordType = "";
@@ -140,7 +142,10 @@ export default {
               this.loading = false;
             });
         } else {
-          console.log("error submit!!");
+          this.$messgae({
+            message: "表单验证失败11111",
+            type: "error",
+          });
           return false;
         }
       });
@@ -225,7 +230,7 @@ $light_gray: #eee;
     }
   }
 
-  .svg-container {
+  .icon-container {
     padding: 6px 5px 6px 15px;
     color: $dark_gray;
     vertical-align: middle;

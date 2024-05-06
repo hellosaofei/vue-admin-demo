@@ -1,38 +1,58 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+  <div class="app-container">
+    <el-tabs type="border-card" class="tab-container">
+      <el-tab-pane label="Client">
+        <TimeLine v-if="res1" :timelineData="res1" />
+      </el-tab-pane>
+      <el-tab-pane label="Server">
+        <TimeLine v-if="res2" :timelineData="res2" />
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
-import { getList } from "@/api/table";
+import TimeLine from "./components/TimeLine.vue";
 import { mapGetters } from "vuex";
+import { getListV1, getListV2 } from "@/api/timeline";
+
 export default {
   name: "Dashboard",
   computed: {
     ...mapGetters(["name"]),
   },
+  components: {
+    TimeLine,
+  },
+  data() {
+    return {
+      res1: null,
+      res2: null,
+    };
+  },
   mounted() {
     this.fetchData();
   },
   methods: {
-    fetchData() {
-      getList().then((response) => {
-        console.log("列表请求数据返回结果", response);
-      });
+    async fetchData() {
+      try {
+        const [res1, res2] = await Promise.all([getListV1(), getListV2()]);
+        // console.log(res1, res2);
+        this.res1 = res1;
+        this.res2 = res2;
+      } catch (error) {
+        this.$message({
+          message: `请求数据出现错误${error}`,
+          type: "error",
+        });
+      }
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
+.tab-container {
+  border-radius: 5px;
 }
 </style>

@@ -6,7 +6,7 @@ export default {
   name: "back-stage",
   meta: {
     title: "后台管理专项",
-    icon: "eye",
+    icon: "el-icon-s-help",
   },
   redirect: "/backstage/manage",
   children: [
@@ -17,6 +17,12 @@ export default {
       meta: { title: "管理", noCache: true },
       redirect: "/backstage/manage/comment",
       children: [
+        {
+          path: "panel",
+          component: () => import("@/views/backstage/manage/panel"),
+          name: "Panel",
+          meta: { title: "管理面板" },
+        },
         {
           path: "comment",
           component: () => import("@/views/backstage/manage/comment"),
@@ -35,12 +41,12 @@ export default {
           name: "Order",
           meta: { title: "订单管理" },
         },
-        {
-          path: "staff",
-          component: () => import("@/views/backstage/manage/staff"),
-          name: "Staff",
-          meta: { title: "人员管理" },
-        },
+        // {
+        //   path: "staff",
+        //   component: () => import("@/views/backstage/manage/staff"),
+        //   name: "Staff",
+        //   meta: { title: "人员管理" },
+        // },
         {
           path: "source",
           component: () => import("@/views/backstage/manage/source"),

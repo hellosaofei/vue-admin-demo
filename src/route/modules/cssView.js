@@ -6,7 +6,7 @@ export default {
   name: "css-view",
   meta: {
     title: "Css相关",
-    icon: "eye",
+    icon: "el-icon-star-on",
   },
   redirect: "/css-view/carousel",
   children: [
