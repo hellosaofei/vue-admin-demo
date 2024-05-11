@@ -40,5 +40,17 @@ export default {
       name: "drag",
       meta: { title: "元素拖拽", noCache: true },
     },
+    {
+      path: "toolFunction",
+      component: () => import("@/views/js-view/toolFunction"),
+      name: "toolFunction",
+      meta: { title: "防抖节流", noCache: true },
+    },
+    {
+      path: "VirtualList",
+      component: () => import("@/views/js-view/VirtualList"),
+      name: "VirtualList",
+      meta: { title: "虚拟列表", noCache: true },
+    },
   ],
 };

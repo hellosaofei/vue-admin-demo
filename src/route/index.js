@@ -42,6 +42,20 @@ export const constantRoutes = [
     ],
   },
 
+  {
+    path: "/Updatelog",
+    component: Layout,
+    redirect: "/Updatelog/index",
+    children: [
+      {
+        path: "index",
+        name: "Updatelog",
+        component: () => import("@/views/update-log/index"),
+        meta: { title: "更新日志", icon: "el-icon-s-help" },
+      },
+    ],
+  },
+
   jsViewRouter,
   cssViewRouter,
   serviceViewRouter,

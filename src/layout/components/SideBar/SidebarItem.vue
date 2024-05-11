@@ -99,6 +99,9 @@ export default {
       if (routePath == "dashboard") {
         return this.basePath;
       }
+      if (routePath == "Updatelog") {
+        return this.basePath + "Updatelog";
+      }
       // if(this.basePath=='/'){
       //   console.log(this.basePath)
       // }
