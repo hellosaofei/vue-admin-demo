@@ -1,9 +1,11 @@
 import Vue from "vue";
+
+import "@/directive/index";
+import "@/plugins/index";
+
 import "normalize.css/normalize.css";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
+
 import "video.js/dist/video-js.css";
-//video.js/dist/video-js.css
 import "@/styles/index.scss";
 
 import App from "./App.vue";
@@ -12,20 +14,7 @@ import router from "./route";
 import "@/icons";
 import "@/permission";
 
-import VueLuckyCanvas from "@lucky-canvas/vue";
-
-import SlideVerify from "vue-monoplasty-slide-verify";
-Vue.use(VueLuckyCanvas);
-Vue.use(SlideVerify);
 Vue.prototype.$echarts = window.echarts;
-// Vue.config.productionTip = false;
-Vue.config.devtools = true;
-Vue.use(ElementUI);
-
-if (process.env.NODE_ENV === "production") {
-  const { mockXHR } = require("../mock");
-  mockXHR();
-}
 
 new Vue({
   render: (h) => h(App),

@@ -52,5 +52,11 @@ export default {
       name: "VirtualList",
       meta: { title: "虚拟列表", noCache: true },
     },
+    {
+      path: "copy",
+      component: () => import("@/views/js-view/copy"),
+      name: "Copy",
+      meta: { title: "复制粘贴", noCache: true },
+    },
   ],
 };

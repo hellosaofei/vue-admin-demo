@@ -1,12 +1,24 @@
 <template>
   <div class="app-container">
-    <el-empty description="暂时没有内容"></el-empty>
+    <content-card cardName="原生JS实现排序" cardWidth="100%">
+      <DragEle />
+    </content-card>
   </div>
 </template>
 
 <script>
+import ContentCard from "@/components/ContentCard/index.vue";
+import DragEle from "./DragEle.vue";
 export default {
-  name: "Drag",
+  name: "",
+  components: {
+    ContentCard,
+    DragEle,
+  },
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 
