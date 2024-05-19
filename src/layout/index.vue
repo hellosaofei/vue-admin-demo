@@ -9,6 +9,7 @@
     <div class="main-container">
       <div :class="{ 'fixed-header': isFixHeader }">
         <nav-bar />
+        <TagsView />
       </div>
       <app-main />
     </div>
@@ -17,7 +18,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { NavBar, SideBar, AppMain } from "./components";
+import { NavBar, SideBar, AppMain, TagsView } from "./components";
 import ResizeMixin from "./mixin/ResizeHander";
 export default {
   name: "Layout",
@@ -25,6 +26,7 @@ export default {
     NavBar,
     SideBar,
     AppMain,
+    TagsView,
   },
   mixins: [ResizeMixin],
   computed: {

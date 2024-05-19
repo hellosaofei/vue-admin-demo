@@ -3,6 +3,7 @@
 // const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
 import { project_title, isFixHeader, isShowSidebarLogo } from "@/settings";
 const state = {
+  theme: "#1890ff",
   showSettings: true,
   isFixHeader: isFixHeader,
   isShowSidebarLogo: isShowSidebarLogo,
