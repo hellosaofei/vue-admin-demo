@@ -30,6 +30,7 @@ export default {
 .box-card {
   /* width: 480px; */
   /* height: 350px; */
-  padding-bottom: 18px;
+  /* padding-bottom: 18px; */
+  margin-bottom: 20px;
 }
 </style>

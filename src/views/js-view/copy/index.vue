@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "",
+  name: "Copy",
   data() {
     return {
       inputData: "",
@@ -39,5 +39,6 @@ export default {
 .input {
   width: 60%;
   margin-right: 20px;
+  border: 1px solid #ddd;
 }
 </style>

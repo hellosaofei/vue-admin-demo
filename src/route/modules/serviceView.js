@@ -58,5 +58,11 @@ export default {
       name: "share",
       meta: { title: "分享", noCache: true },
     },
+    {
+      path: "watermark",
+      component: () => import("@/views/service-view/waterMark"),
+      name: "WaterMark",
+      meta: { title: "水印效果", noCache: true },
+    },
   ],
 };

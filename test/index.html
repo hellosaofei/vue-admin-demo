@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .config {
+        display: flex;
+        background-color: aqua;
+        justify-content: space-between; /* 如果需要子元素之间有间隔 */
+      }
+
+      .left-part,
+      .right-part {
+        flex: 1; /* 占据相等的空间 */
+        background-color: antiquewhite;
+        /* 你可以在这里添加额外的样式，比如padding、margin等 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="config">
+      <div class="left-part"></div>
+      <div class="right-part"></div>
+    </div>
+  </body>
+</html>

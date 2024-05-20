@@ -9,6 +9,8 @@ import jsViewRouter from "./modules/jsView";
 import cssViewRouter from "./modules/cssView";
 import serviceViewRouter from "./modules/serviceView";
 import backstageRouter from "./modules/backstage";
+import otherViewRouter from "./modules/otherView";
+
 //获取原型对象上的push函数
 const originalPush = VueRouter.prototype.push;
 //修改原型对象中的push方法
@@ -60,6 +62,7 @@ export const constantRoutes = [
   cssViewRouter,
   serviceViewRouter,
   backstageRouter,
+  otherViewRouter,
   {
     path: "/example",
     component: Layout,
