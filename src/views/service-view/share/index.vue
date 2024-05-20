@@ -5,7 +5,7 @@
       v-model="inputData"
       placeholder="请输入内容"
       clearable
-      style="width: 60%"
+      style="width: 60%; border: 1px solid #dcdfe6"
     ></el-input>
     <p>二维码</p>
     <div class="qrcode-area">

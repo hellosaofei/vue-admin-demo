@@ -28,7 +28,7 @@
 
 <script>
 // import Scroll from "./Scroll.vue";
-import path from "path";
+// import path from "path";
 export default {
   name: "",
   components: {
@@ -58,7 +58,7 @@ export default {
               path: "dashboard",
               // component: () => import("@/views/dashboard/index"),
               name: "Dashboard",
-              meta: { title: "Dashboard", icon: "dashboard", affix: true },
+              meta: { title: "首页", icon: "dashboard", affix: true },
             },
           ],
         },
@@ -82,6 +82,11 @@ export default {
     this.addTags();
   },
   methods: {
+    _resolve(str1, str2) {
+      if (str1 == str2[0]) {
+        return str2;
+      } else return str1 + str2;
+    },
     // 判断当前路由是否active
     isActive(route) {
       return this.$route.path === route.path;
@@ -96,7 +101,7 @@ export default {
       console.log("filter函数调用了", routes);
       routes.forEach((route) => {
         if (route.meta && route.meta.affix) {
-          const tagPath = path.resolve(basePath, route.path);
+          const tagPath = this._resolve(basePath, route.path);
           tags.push({
             fullPath: tagPath,
             path: tagPath,
@@ -175,6 +180,10 @@ export default {
   background: #fff;
   border-bottom: 1px solid #d8dce5;
   .tags-view-wrapper {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
     .tags-view-item {
       display: inline-block;
       position: relative;
