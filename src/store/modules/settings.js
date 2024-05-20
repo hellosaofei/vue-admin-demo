@@ -1,17 +1,23 @@
 // import defaultSettings from '@/settings'
 
 // const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
-import { project_title, isFixHeader, isShowSidebarLogo } from "@/settings";
+import {
+  project_title,
+  isFixHeader,
+  isShowSidebarLogo,
+  showSettings,
+  tagsView,
+} from "@/settings";
 const state = {
   theme: "#1890ff",
-  showSettings: true,
+  tagsView: tagsView,
+  showSettings: showSettings,
   isFixHeader: isFixHeader,
   isShowSidebarLogo: isShowSidebarLogo,
 };
 
 const mutations = {
   CHANGE_SETTING: (state, { key, value }) => {
-    // eslint-disable-next-line no-prototype-builtins
     if (state.hasOwnProperty(key)) {
       state[key] = value;
     }

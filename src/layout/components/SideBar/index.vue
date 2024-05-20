@@ -1,6 +1,6 @@
 <template>
-  <div :class="{ 'has-logo': isShowLogo }">
-    <logo v-if="isShowLogo" :collapse="isCollapse" />
+  <div :class="{ 'has-logo': isShowSidebarLogo }">
+    <logo v-if="isShowSidebarLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -38,7 +38,7 @@ export default {
   },
   components: { SidebarItem, Logo },
   computed: {
-    ...mapGetters(["sidebar", "isShowLogo"]),
+    ...mapGetters(["sidebar", "isShowSidebarLogo"]),
     routes() {
       return this.$router.options.routes;
     },

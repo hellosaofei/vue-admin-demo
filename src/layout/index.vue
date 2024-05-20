@@ -9,16 +9,20 @@
     <div class="main-container">
       <div :class="{ 'fixed-header': isFixHeader }">
         <nav-bar />
-        <TagsView />
+        <TagsView v-if="tagsView" />
       </div>
       <app-main />
+      <right-pane v-if="showSettings">
+        <Setting />
+      </right-pane>
     </div>
   </div>
 </template>
 
 <script>
+import RightPane from "@/components/RightPane";
 import { mapGetters } from "vuex";
-import { NavBar, SideBar, AppMain, TagsView } from "./components";
+import { NavBar, SideBar, AppMain, TagsView, Setting } from "./components";
 import ResizeMixin from "./mixin/ResizeHander";
 export default {
   name: "Layout",
@@ -27,10 +31,18 @@ export default {
     SideBar,
     AppMain,
     TagsView,
+    RightPane,
+    Setting,
   },
   mixins: [ResizeMixin],
   computed: {
-    ...mapGetters(["sidebar", "device", "isFixHeader"]),
+    ...mapGetters([
+      "sidebar",
+      "device",
+      "isFixHeader",
+      "showSettings",
+      "tagsView",
+    ]),
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,

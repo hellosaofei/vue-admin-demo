@@ -4,7 +4,10 @@ const getters = {
   token: (state) => state.user.token,
   avatar: (state) => state.user.avatar,
   name: (state) => state.user.name,
-  isShowLogo: (state) => state.settings.isShowSidebarLogo,
+  isShowSidebarLogo: (state) => state.settings.isShowSidebarLogo,
   isFixHeader: (state) => state.settings.isFixHeader,
+  theme: (state) => state.settings.theme,
+  tagsView: (state) => state.settings.tagsView,
+  showSettings: (state) => state.settings.showSettings,
 };
 export default getters;

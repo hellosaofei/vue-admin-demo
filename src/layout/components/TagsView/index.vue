@@ -82,6 +82,7 @@ export default {
     this.addTags();
   },
   methods: {
+    // 用于实现路由拼接功能，相当于一个简易版的path.reslove()
     _resolve(str1, str2) {
       if (str1 == str2[0]) {
         return str2;
@@ -98,7 +99,6 @@ export default {
     // 过滤具有meta.affix==true的路由
     filterAffixTags(routes, basePath = "/") {
       let tags = [];
-      console.log("filter函数调用了", routes);
       routes.forEach((route) => {
         if (route.meta && route.meta.affix) {
           const tagPath = this._resolve(basePath, route.path);
@@ -122,10 +122,8 @@ export default {
     // 初始化
     initTags() {
       const affixTags = this.filterAffixTags(this.routes);
-      console.log("affixtags求出来了", affixTags);
       for (const tag of affixTags) {
         // tag对应的路由必须有name
-        console.log(tag);
         if (tag.name) {
           this.$store.dispatch("tagsView/addVisitedView", tag);
         }
