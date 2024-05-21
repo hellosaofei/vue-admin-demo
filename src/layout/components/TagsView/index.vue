@@ -189,7 +189,7 @@ export default {
       height: 26px;
       line-height: 26px;
       border: 1px solid #d8dce5;
-      color: #495060;
+      color: #000;
       background: #fff;
       padding: 0 8px;
       font-size: 12px;
@@ -202,9 +202,9 @@ export default {
         margin-right: 15px;
       }
       &.active {
-        background-color: #42b983;
+        background-color: var(--v2-color-primary-opacity-8);
         color: #fff;
-        border-color: #42b983;
+        border-color: #dcdfe6;
         &::before {
           content: "";
           background: #fff;
@@ -225,13 +225,13 @@ export default {
     text-align: center;
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform-origin: 100% 50%;
-    &:before {
-      transform: scale(0.6);
-      display: inline-block;
-      vertical-align: -3px;
-    }
+    // &:before {
+    //   transform: scale(0.6);
+    //   display: inline-block;
+    //   vertical-align: -3px;
+    // }
     &:hover {
-      background-color: #b4bccc;
+      background-color: #a8abb2;
       color: #fff;
     }
   }

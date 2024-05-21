@@ -4,6 +4,20 @@
 @import "./element-ui.scss";
 @import "./sidebar.scss";
 
+// 定义全局css变量
+:root {
+  --v2-color-primary: rgb($v2-color-primary);
+  --v2-color-primary-opacity-1: rgba(var(--v2-color-primary), 0.1);
+  --v2-color-primary-opacity-2: rgba(var(--v2-color-primary), 0.2);
+  --v2-color-primary-opacity-3: rgba(var(--v2-color-primary), 0.3);
+  --v2-color-primary-opacity-4: rgba(var(--v2-color-primary), 0.4);
+  --v2-color-primary-opacity-5: rgba(var(--v2-color-primary), 0.5);
+  --v2-color-primary-opacity-6: rgba(var(--v2-color-primary), 0.6);
+  --v2-color-primary-opacity-7: rgba(var(--v2-color-primary), 0.7);
+  --v2-color-primary-opacity-8: rgba(var(--v2-color-primary), 0.8);
+  --v2-color-primary-opacity-9: rgba(var(--v2-color-primary), 0.9);
+}
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
