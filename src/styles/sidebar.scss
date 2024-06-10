@@ -53,6 +53,10 @@
       overflow: hidden;
     }
 
+    .svg-icon {
+      margin-right: 16px;
+    }
+
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
@@ -64,7 +68,7 @@
       width: 100% !important;
     }
 
-    // 鼠标悬浮于子菜单之上时的背景色
+    // menu hover
     .submenu-title-noDropdown,
     .el-submenu__title {
       &:hover {
@@ -82,7 +86,7 @@
       background-color: $subMenuBg !important;
 
       &:hover {
-        background-color: var(--v2-color-primary) !important;
+        background-color: $subMenuHover !important;
       }
     }
   }
@@ -103,6 +107,10 @@
       .el-tooltip {
         padding: 0 !important;
 
+        .svg-icon {
+          margin-left: 20px;
+        }
+
         .sub-el-icon {
           margin-left: 19px;
         }
@@ -114,6 +122,10 @@
 
       & > .el-submenu__title {
         padding: 0 !important;
+
+        .svg-icon {
+          margin-left: 20px;
+        }
 
         .sub-el-icon {
           margin-left: 19px;
@@ -144,7 +156,7 @@
     min-width: $sideBarWidth !important;
   }
 
-  // 移动端响应式
+  // mobile responsive
   .mobile {
     .main-container {
       margin-left: 0px;
@@ -172,23 +184,27 @@
   }
 }
 
-// 菜单收缩后样式
+// when menu collapsed
 .el-menu--vertical {
   & > .el-menu {
+    .svg-icon {
+      margin-right: 16px;
+    }
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
     }
   }
-  // 鼠标悬浮于菜单之上时的背景色
+
   .nest-menu .el-submenu > .el-submenu__title,
   .el-menu-item {
     &:hover {
-      background-color: var(--v2-color-primary) !important;
+      // you can use $subMenuHover
+      background-color: $menuHover !important;
     }
   }
 
-  // 当子菜单过多时，会显示右侧滚动条
+  // the scroll bar appears when the subMenu is too long
   > .el-menu--popup {
     max-height: 100vh;
     overflow-y: auto;

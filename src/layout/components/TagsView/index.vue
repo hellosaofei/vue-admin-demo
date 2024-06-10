@@ -202,7 +202,7 @@ export default {
         margin-right: 15px;
       }
       &.active {
-        background-color: #64d9d6;
+        background-color: var(--v2-color-primary-opacity-9);
         color: #fff;
         border-color: #dcdfe6;
         &::before {

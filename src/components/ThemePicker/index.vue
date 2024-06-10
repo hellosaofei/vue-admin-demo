@@ -8,26 +8,28 @@
 </template>
 
 <script>
+import { setPrimaryColor } from "@/utils/tool.js";
 export default {
   name: "ThemePicker",
   data() {
     return {
       preDefineColor: [
-        "#409EFF",
-        "#1890ff",
-        "#304156",
-        "#212121",
-        "#11a983",
-        "#13c2c2",
-        "#6959CD",
-        "#f5222d",
+        "#4E88F3",
+        "#1E90FF",
+        "#F01414",
+        "#7B40F2",
+        "#6954F0",
+        "#009688",
+        "#07C160",
+        "#16BAA9",
+        "#3FB884",
       ],
       themeColor: "#409EFF",
     };
   },
   watch: {
     themeColor: function (value) {
-      this.updateThemeColor(value);
+      setPrimaryColor(value);
     },
   },
   methods: {
@@ -57,4 +59,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* 使得el-picker在最上方显示 */
+.theme-message,
+.theme-picker-dropdown {
+  z-index: 99999 !important;
+}
+
+.theme-picker .el-color-picker__trigger {
+  height: 26px !important;
+  width: 26px !important;
+  padding: 2px;
+}
+
+.theme-picker-dropdown .el-color-dropdown__link-btn {
+  display: none;
+}
+</style>

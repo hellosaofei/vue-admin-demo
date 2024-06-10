@@ -2,21 +2,23 @@
 @import "./mixin.scss";
 @import "./transition.scss";
 @import "./element-ui.scss";
+@import "./element-variable.scss";
 @import "./sidebar.scss";
 
-// 定义全局css变量
-// :root {
-//   --v2-color-primary: #0052d9;
-//   --v2-color-primary-opacity-1: rgba(var(--v2-color-primary), 0.1);
-//   --v2-color-primary-opacity-2: rgba(var(--v2-color-primary), 0.2);
-//   --v2-color-primary-opacity-3: rgba(var(--v2-color-primary), 0.3);
-//   --v2-color-primary-opacity-4: rgba(var(--v2-color-primary), 0.4);
-//   --v2-color-primary-opacity-5: rgba(var(--v2-color-primary), 0.5);
-//   --v2-color-primary-opacity-6: rgba(var(--v2-color-primary), 0.6);
-//   --v2-color-primary-opacity-7: rgba(var(--v2-color-primary), 0.7);
-//   --v2-color-primary-opacity-8: rgba(var(--v2-color-primary), 0.8);
-//   --v2-color-primary-opacity-9: rgba(var(--v2-color-primary), 0.9);
-// }
+:root {
+  --v2-color-primary: #42b983;
+  --v2-color-primary-rgb: 66, 185, 131;
+  --v2-color-primary-opacity-1: rgba(var(--v2-color-primary-rgb), 0.1);
+  --v2-color-primary-opacity-2: rgba(var(--v2-color-primary-rgb), 0.2);
+  --v2-color-primary-opacity-3: rgba(var(--v2-color-primary-rgb), 0.3);
+  --v2-color-primary-opacity-4: rgba(var(--v2-color-primary-rgb), 0.4);
+  --v2-color-primary-opacity-5: rgba(var(--v2-color-primary-rgb), 0.5);
+  --v2-color-primary-opacity-6: rgba(var(--v2-color-primary-rgb), 0.6);
+  --v2-color-primary-opacity-7: rgba(var(--v2-color-primary-rgb), 0.7);
+  --v2-color-primary-opacity-8: rgba(var(--v2-color-primary-rgb), 0.8);
+  --v2-color-primary-opacity-9: rgba(var(--v2-color-primary-rgb), 0.9);
+  --v2-app-container-bg-color: #f6f9fe;
+}
 
 body {
   height: 100%;

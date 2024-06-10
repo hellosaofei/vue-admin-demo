@@ -15,6 +15,7 @@ import "@/icons";
 import "@/permission";
 
 Vue.prototype.$echarts = window.echarts;
+Vue.prototype.$eventBus = new Vue();
 
 new Vue({
   render: (h) => h(App),

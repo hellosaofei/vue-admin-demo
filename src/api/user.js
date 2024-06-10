@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function userLogin(data) {
   return request({
-    url: "/user/login",
+    url: "/login111",
     method: "post",
     data,
   });
@@ -20,5 +20,15 @@ export function userLogout() {
   return request({
     url: "/user/logout",
     method: "post",
+  });
+}
+
+export function getToken(refreshToken) {
+  return request({
+    url: "/refresh",
+    methods: "get",
+    headers: {
+      RefreshToken: refreshToken,
+    },
   });
 }

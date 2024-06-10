@@ -17,9 +17,9 @@ router.beforeEach(async (to, from, next) => {
   //获取token信息，
   // 如果有，说明用户已经完成登录并获得了token
   // 此处的token是从cookie中获取的
-  const hasToken = getToken();
+  // const hasToken = getToken();
   // 有token
-  if (hasToken) {
+  if (store.getters.refreshToken) {
     //如果要访问的网址是登录页面，因为已经登录，所以直接跳转到首页
     if (to.path === "/login") {
       next({ path: "/" });
@@ -51,6 +51,7 @@ router.beforeEach(async (to, from, next) => {
     // token都没有，说明都没有登录
     // 说明要访问的页面不在列表内，需要进行登录才能访问
     if (whiteList.indexOf(to.path) === -1) {
+      console.log("未检测到refreshToken，请重新登录");
       next(`/login?redirect=${to.path}`);
       NProgress.done();
     } else {

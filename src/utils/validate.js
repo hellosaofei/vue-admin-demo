@@ -10,8 +10,9 @@ export function isExternal(path) {
 
 // 验证用户名，在该数组中就返回true
 export function validUsername(str) {
-  const valid_map = ["admin", "editor"];
-  const isInArray = valid_map.includes(str.trim());
-  // return valid_map.indexOf(str.trim()) >= 0;
-  return isInArray;
+  // const valid_map = ["admin", "editor"];
+  // const isInArray = valid_map.includes(str.trim());
+  // // return valid_map.indexOf(str.trim()) >= 0;
+  // return isInArray;
+  return true;
 }

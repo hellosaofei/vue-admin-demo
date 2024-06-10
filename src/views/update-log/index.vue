@@ -15,6 +15,7 @@
 import TimeLine from "./components/TimeLine.vue";
 import { mapGetters } from "vuex";
 import { getListV1, getListV2 } from "@/api/timeline";
+import eventBus from "@/plugins/eventBus";
 
 export default {
   name: "UpdataLog",
@@ -32,12 +33,21 @@ export default {
   },
   mounted() {
     this.fetchData();
+    this.setupEventListener();
+  },
+  beforeDestroy() {
+    console.log("组件即将销毁，删除事件监听");
+    this.removeEventListener();
   },
   methods: {
     async fetchData() {
       try {
         const [res1, res2] = await Promise.all([getListV1(), getListV2()]);
         // console.log(res1, res2);
+        this.$message({
+          message: `请求timeline数据成功${res1.length},${res2.length}`,
+          type: "success",
+        });
         this.res1 = res1;
         this.res2 = res2;
       } catch (error) {
@@ -46,6 +56,15 @@ export default {
           type: "error",
         });
       }
+    },
+    setupEventListener() {
+      eventBus.$on("tokenRefreshed", this.fetchData.bind(this));
+      // eventBus.on("tokenRefreshed", () => {
+      //   console.log("监听到token刷新事件，。。。，重新获取数据！！！！");
+      // });
+    },
+    removeEventListener() {
+      eventBus.$off("tokenRefreshed");
     },
   },
 };

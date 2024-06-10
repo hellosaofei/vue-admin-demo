@@ -142,7 +142,7 @@ export default {
               this.loading = false;
             });
         } else {
-          this.$messgae({
+          this.$message({
             message: "表单验证失败11111",
             type: "error",
           });
