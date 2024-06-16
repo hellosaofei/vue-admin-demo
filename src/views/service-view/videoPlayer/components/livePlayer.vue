@@ -1,5 +1,5 @@
 <template>
-  <content-card cardName="张三">
+  <content-card cardName="直播中国-魅力区县">
     <video ref="videoPlayer" class="video-js"></video>
   </content-card>
 </template>

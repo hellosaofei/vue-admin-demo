@@ -1,28 +1,31 @@
 <template>
   <div class="app-container">
-    <ContentCard cardWidth="100%" cardName="轮播图1">
+    <ContentCard cardWidth="100%" cardName="ElementUI轮播图">
       <el-carousel indicator-position="inside">
         <el-carousel-item v-for="(item, index) in imageList" :key="index">
           <img :src="item" alt="" />
         </el-carousel-item>
       </el-carousel>
     </ContentCard>
-    <ContentCard cardWidth="100%" cardName="轮播图2">
-      <el-carousel indicator-position="inside">
-        <el-carousel-item v-for="(item, index) in imageList" :key="index">
-          <img :src="item" alt="" />
-        </el-carousel-item>
-      </el-carousel>
+    <ContentCard cardWidth="100%" cardName="手写js轮播图">
+      <CarouselBasis />
+    </ContentCard>
+    <ContentCard cardWidth="100%" cardName="手写js无缝轮播">
+      <CarouselAdvance />
     </ContentCard>
   </div>
 </template>
 
 <script>
+import CarouselBasis from "./component/CarouselBasis.vue";
+import CarouselAdvance from "./component/CarouselAdvance.vue";
 import ContentCard from "@/components/ContentCard/index.vue";
 export default {
   name: "Carousel",
   components: {
     ContentCard,
+    CarouselBasis,
+    CarouselAdvance,
   },
   data() {
     return {

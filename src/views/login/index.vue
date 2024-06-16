@@ -62,8 +62,8 @@
       </el-button>
 
       <div class="tips">
-        <span style="margin-right: 20px">username: admin</span>
-        <span>请任意填写密码</span>
+        <span style="margin-right: 20px">username: 张三</span>
+        <span>password:bingo123</span>
       </div>
     </el-form>
   </div>
@@ -90,8 +90,8 @@ export default {
     };
     return {
       loginForm: {
-        username: "admin",
-        password: "111111",
+        username: "张三",
+        password: "bingo123",
       },
       loginRules: {
         username: [

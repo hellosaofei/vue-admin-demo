@@ -2,12 +2,18 @@ import request from "@/utils/request";
 
 export function userLogin(data) {
   return request({
-    url: "/login111",
+    url: "/user/login",
     method: "post",
     data,
   });
 }
-
+export function userRegister(data) {
+  return request({
+    url: "/user/register",
+    method: "post",
+    data,
+  });
+}
 export function getUserInfo(token) {
   return request({
     url: "/user/info",
@@ -25,7 +31,7 @@ export function userLogout() {
 
 export function getToken(refreshToken) {
   return request({
-    url: "/refresh",
+    url: "/user/refresh",
     methods: "get",
     headers: {
       RefreshToken: refreshToken,

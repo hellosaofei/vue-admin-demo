@@ -19,7 +19,8 @@ export default {
         controls: true,
         sources: [
           {
-            src: "https://gcalic.v.myalicdn.com/gc/glxs01_1/index.m3u8?contentid=2820180516001",
+            // https://gcalic.v.myalicdn.com/gc/glxs01_1/index.m3u8?contentid=2820180516001
+            src: "https://gcalic.v.myalicdn.com/gc/djd01_1/index.m3u8?contentid=2820180516001",
             type: "application/x-mpegURL",
           },
         ],
