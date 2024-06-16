@@ -20,6 +20,7 @@
 <script>
 import { dataList } from "../../data/index.js";
 import { throttle, debounce } from "@/utils/tool.js";
+// test
 export default {
   name: "WaterFall",
   data() {
