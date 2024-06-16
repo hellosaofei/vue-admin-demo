@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_admin_demo"]=self["webpackChunkvue_admin_demo"]||[]).push([[329],{1329:function(e,t,n){n.r(t),n.d(t,{default:function(){return d}});var u=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("el-empty",{attrs:{description:"虚拟列表暂时没有内容"}})],1)},r=[],a={name:"VirtualList",data(){return{}},methods:{}},l=a,i=n(1656),s=(0,i.A)(l,u,r,!1,null,null,null),d=s.exports}}]);
+//# sourceMappingURL=329.1109eb25.js.map

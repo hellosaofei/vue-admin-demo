@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_admin_demo"]=self["webpackChunkvue_admin_demo"]||[]).push([[542],{6542:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container"},[t("el-empty",{attrs:{description:"暂时没有内容"}})],1)},a=[],l={},r=l,s=t(1656),i=(0,s.A)(r,u,a,!1,null,null,null),c=i.exports}}]);
+//# sourceMappingURL=542.bcd6a624.js.map

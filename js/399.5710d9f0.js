@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_admin_demo"]=self["webpackChunkvue_admin_demo"]||[]).push([[399],{3399:function(e,n,t){t.r(n),t.d(n,{default:function(){return i}});var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container"},[t("el-empty",{attrs:{description:"暂时没有内容"}})],1)},a=[],l={name:"MySocket"},r=l,s=t(1656),c=(0,s.A)(r,u,a,!1,null,null,null),i=c.exports}}]);
+//# sourceMappingURL=399.5710d9f0.js.map

@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_admin_demo"]=self["webpackChunkvue_admin_demo"]||[]).push([[919],{1919:function(e,n,t){t.r(n),t.d(n,{default:function(){return s}});var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("el-empty",{attrs:{description:"工具函数暂时没有内容"}})],1)},r=[],l={name:"ToolFunction",data(){return{}},methods:{}},a=l,i=t(1656),o=(0,i.A)(a,u,r,!1,null,null,null),s=o.exports}}]);
+//# sourceMappingURL=919.cacf91de.js.map

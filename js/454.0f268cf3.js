@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_admin_demo"]=self["webpackChunkvue_admin_demo"]||[]).push([[454],{4454:function(e,t,n){n.r(t),n.d(t,{default:function(){return c}});var a=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"app-container"},[n("el-empty",{attrs:{description:"签名功能暂未实现"}})],1)},u=[],r={name:"Signature",data(){return{}},methods:{}},s=r,i=n(1656),l=(0,i.A)(s,a,u,!1,null,null,null),c=l.exports}}]);
+//# sourceMappingURL=454.0f268cf3.js.map
