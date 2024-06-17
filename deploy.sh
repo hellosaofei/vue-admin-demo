@@ -43,6 +43,8 @@
 # 出现错误时立即退出shell脚本的执行
 set -e
 
+info="$1"
+
 npm run build
 cd dist
 # 用于防止github pages的jekyll行为
@@ -51,7 +53,7 @@ touch .nojekyll
 git init
 # 向新的git 仓库中添加内容
 git add -A
-git commit -m 'deploy'
+git commit -m "${info}"
 # 将该git仓库中的内容提交到指定的仓库，并指定具体分支
 # git push -f "https://github.com/hellosaofei/vue2-test.git" master:deploy
 

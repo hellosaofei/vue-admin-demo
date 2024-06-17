@@ -5,7 +5,7 @@ import { requestToken, addRequestConfig } from "./refresh";
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_Url,
-  timeout: 3000,
+  timeout: 60000,
 });
 
 // 请求拦截器
